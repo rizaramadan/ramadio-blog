@@ -1,0 +1,14 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'Ramadio'
+theme = 'paper'
+
+[params]
+  color = 'linen'
+
+  twitter = 'riza_ramadan'
+  github = 'rizaramadan'
+
+  avatar = 'rizaramadan@gmail.com'
+  name = 'Ramad'
+  bio = 'Writing about work related'
