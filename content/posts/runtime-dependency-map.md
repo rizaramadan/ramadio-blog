@@ -11,3 +11,8 @@ Hence, Runtime Dependency Map is a map for us to know where we are currently wit
 Runtime dependencies map is inspired by Wardley Mapping
 https://learnwardleymapping.com
 
+# What
+A map is basically a diagram where every place means something. Think of a cartesian diagram, it can be considered a map, whereas a mindmap can’t.
+In Runtime Dependency Map:
+X-Axis, Up and down means movement on system's dependencies, upper sections means more direct dependencies, lower section means more deep dependencies
+Y-Axis, Left and right means movement on stability
