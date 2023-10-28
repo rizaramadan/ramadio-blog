@@ -1,7 +1,7 @@
 +++
 title = 'Runtime Dependency Map'
 date = 2023-10-23T15:02:32+07:00
-draft = false
+draft = true
 +++
 Lets just say that in order to sustain, we need to improve. And to improve, basically we need to move. Speaking about movement, in real life, what is the tool that is commonly and widely used to move from one place to another? It's a map.
 Map is a model to provide us information about the current landscape we are in. It helps us articulate clearly where we are in, where we want to go, and how the movement will be from here to there.
