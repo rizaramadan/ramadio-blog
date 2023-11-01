@@ -1,6 +1,6 @@
 +++
 title = 'The Power of Asking the Right Questions as a Manager'
-date = 2023-10-22T08:10:18+07:00
+date = 2023-09-22T08:10:18+07:00
 draft = false
 +++
 To thrive as a manager, it's essential not just to ask questions, but to ask the right ones.

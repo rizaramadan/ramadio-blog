@@ -1,6 +1,6 @@
 +++
 title = 'Premortem: Predicting Pitfalls Before They Happen'
-date = 2023-10-21T23:01:42+07:00
+date = 2023-08-21T23:01:42+07:00
 draft = false
 +++
 Imagine launching a project only to see it crumble disastrously. Sounds horrifying, right? Enter the Premortem: a powerful strategy that allows teams to forecast potential failures before they even occur.
