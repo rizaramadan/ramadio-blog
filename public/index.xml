@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ramadio</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Ramadio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Oct 2023 15:02:32 +0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visualizing Web App Dependencies and Stability With Runtime Dependencies Map</title>
+      <link>http://localhost:1313/posts/runtime-dependencies-map/</link>
+      <pubDate>Mon, 23 Oct 2023 15:02:32 +0700</pubDate>
+      
+      <guid>http://localhost:1313/posts/runtime-dependencies-map/</guid>
+      <description>Let&amp;rsquo;s just say that to sustain, we need to improve. And to improve, we essentially need to move. When we talk about movement in the real world, what tool is most commonly used to navigate from one place to another? A map. A map offers a model that provides information about the landscape we are in. It helps us clearly understand our current location, our destination, and the route to get there.</description>
+    </item>
+    
+    <item>
+      <title>Doing TDD for the Right Reason: Its Okay to Do It Wrong</title>
+      <link>http://localhost:1313/posts/tdd-for-the-right-reason/</link>
+      <pubDate>Wed, 11 Oct 2023 23:01:42 +0700</pubDate>
+      
+      <guid>http://localhost:1313/posts/tdd-for-the-right-reason/</guid>
+      <description>In short, use TDD for the survival of the business.
+Inflation We inhabit a world where inflation is inescapable. It gradually erodes our assets, steadily diminishing their value until little or nothing remains. Businesses, too, are not immune to the impacts of inflation, making growth the sole sustainable strategy for survival.
+How To Grow Business Software is only valuable if it has features that customers use, and these features assist them in some way.</description>
+    </item>
+    
+    <item>
+      <title>The Power of Asking the Right Questions as a Manager</title>
+      <link>http://localhost:1313/posts/asking-question/</link>
+      <pubDate>Fri, 22 Sep 2023 08:10:18 +0700</pubDate>
+      
+      <guid>http://localhost:1313/posts/asking-question/</guid>
+      <description>To thrive as a manager, it&amp;rsquo;s essential not just to ask questions, but to ask the right ones.
+First and foremost, it isn’t so much about the questions we pose, but about the genuine concern and interest we show in the responses. In today&amp;rsquo;s rapidly changing environment, it’s more crucial than ever to be proactive in seeking answers. It&amp;rsquo;s better to lean towards over-asking than to risk leaving important things unsaid or undiscovered.</description>
+    </item>
+    
+    <item>
+      <title>Premortem: Predicting Pitfalls Before They Happen</title>
+      <link>http://localhost:1313/posts/premortem/</link>
+      <pubDate>Mon, 21 Aug 2023 23:01:42 +0700</pubDate>
+      
+      <guid>http://localhost:1313/posts/premortem/</guid>
+      <description>Imagine launching a project only to see it crumble disastrously. Sounds horrifying, right? Enter the Premortem: a powerful strategy that allows teams to forecast potential failures before they even occur.
+Premortem is not just a fancy term but a practical application of a proactive mindset. Instead of reflecting on what went wrong after the fact (as in a postmortem), a premortem session is all about anticipating pitfalls and creating preventive strategies.</description>
+    </item>
+    
+    <item>
+      <title>Growth Mindset and People Manager</title>
+      <link>http://localhost:1313/posts/growth-mindset/</link>
+      <pubDate>Sat, 01 Jul 2023 22:52:03 +0700</pubDate>
+      
+      <guid>http://localhost:1313/posts/growth-mindset/</guid>
+      <description>I firmly believe in the value of a growth mindset within the professional arena. Why? A growth mindset not only serves as a foundation for organizational leaders to be receptive to feedback from their top-performing teams but also fosters mutual growth. As leaders evolve and strengthen their abilities, teams feel valued and heard. Continual self-improvement is a journey we&amp;rsquo;re all on, and none of us have reached perfection. Embracing a growth mindset is the catalyst that propels us toward becoming exceptional managers.</description>
+    </item>
+    
+  </channel>
+</rss>

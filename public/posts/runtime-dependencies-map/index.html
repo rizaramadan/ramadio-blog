@@ -1,0 +1,398 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Visualizing Web App Dependencies and Stability With Runtime Dependencies Map - Ramadio</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Let&rsquo;s just say that to sustain, we need to improve. And to improve, we essentially need to move. When we talk about movement in the real world, what tool is most commonly used to navigate from one place to another? A map. A map offers a model that provides information about the landscape we are in. It helps us clearly understand our current location, our destination, and the route to get there." />
+  <meta name="author" content="Ramad" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.gravatar.com/avatar/5fb2b552e9164ea34d36886704d65325?s=160&amp;d=identicon" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/twitter.svg" />
+  
+  <link rel="preload" as="image" href="http://localhost:1313/github.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.119.0">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Visualizing Web App Dependencies and Stability With Runtime Dependencies Map">
+<meta itemprop="description" content="Let&rsquo;s just say that to sustain, we need to improve. And to improve, we essentially need to move. When we talk about movement in the real world, what tool is most commonly used to navigate from one place to another? A map. A map offers a model that provides information about the landscape we are in. It helps us clearly understand our current location, our destination, and the route to get there."><meta itemprop="datePublished" content="2023-10-23T15:02:32+07:00" />
+<meta itemprop="dateModified" content="2023-10-23T15:02:32+07:00" />
+<meta itemprop="wordCount" content="897">
+<meta itemprop="keywords" content="" />
+  
+  <meta property="og:title" content="Visualizing Web App Dependencies and Stability With Runtime Dependencies Map" />
+<meta property="og:description" content="Let&rsquo;s just say that to sustain, we need to improve. And to improve, we essentially need to move. When we talk about movement in the real world, what tool is most commonly used to navigate from one place to another? A map. A map offers a model that provides information about the landscape we are in. It helps us clearly understand our current location, our destination, and the route to get there." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/runtime-dependencies-map/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-23T15:02:32+07:00" />
+<meta property="article:modified_time" content="2023-10-23T15:02:32+07:00" />
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Visualizing Web App Dependencies and Stability With Runtime Dependencies Map"/>
+<meta name="twitter:description" content="Let&rsquo;s just say that to sustain, we need to improve. And to improve, we essentially need to move. When we talk about movement in the real world, what tool is most commonly used to navigate from one place to another? A map. A map offers a model that provides information about the landscape we are in. It helps us clearly understand our current location, our destination, and the route to get there."/>
+
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/runtime-dependencies-map/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Ramadio</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/riza_ramadan"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/rizaramadan"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Visualizing Web App Dependencies and Stability With Runtime Dependencies Map</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Oct 23, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>Let&rsquo;s just say that to sustain, we need to improve. And to improve, we essentially need to move. When we talk about movement in the real world, what tool is most commonly used to navigate from one place to another? A map. A map offers a model that provides information about the landscape we are in. It helps us clearly understand our current location, our destination, and the route to get there. And <em>Runtime Dependencies Map</em> will have help that, in context of the stability of our web app.</p>
+<p>But what do we mean about &ldquo;runtime dependencies&rdquo;? As we should be aware, our web application generates values when it runs, and maintaining its stability is paramount. It&rsquo;s important to note that this isn&rsquo;t as straightforward as it may seem; numerous issues can arise. More often than not, these problems stem from uncontrolled dependencies. Therefore, the Runtime Dependencies Map serves as a guide to understanding our current standing with our services and dependencies, greatly aiding us in determining areas for improvement and our ultimate goals.</p>
+<p>Runtime dependencies map is inspired by <a href="https://learnwardleymapping.com">Wardley Mapping</a></p>
+<h2 id="what-is-runtime-dependencies-map">What is Runtime Dependencies Map</h2>
+<p>A map is essentially a diagram in which every location has significance. Consider a Cartesian plane; it can be regarded as a map, whereas a mind map cannot, so we need to have meaning in both X-Axis movement and Y-Axis movement. In the Runtime Dependencies Map:</p>
+<ul>
+<li>On the X-Axis, movement up and down represents changes in the system&rsquo;s dependencies. The upper sections indicate more direct dependencies, while the lower sections suggest deeper dependencies.</li>
+<li>On the Y-Axis, movement from left to right represents shifts in stability. We propose five stages of stability:
+<ul>
+<li>passable stability : Extensive tests have deemed it acceptable for launch</li>
+<li>general stability: 98% uptime over the past 3 months.</li>
+<li>proven stability: 99% uptime over the past 3 months.</li>
+<li>exceptional stability: 99.9% uptime over the past 6 months.</li>
+<li>mission-critical stability: 99,99% uptime over the past year.
+In addition to XY movement, we also use color to indicate the origin of the dependencies. We propose three different colors: red for custom builds, yellow for open-source solutions that we manage ourselves, and green for fully managed services that we use.</li>
+</ul>
+</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Lets take a look at map below:
+<img src="runtime-dependencies-map-example.png" alt="an example of services and all of its dependencies"></p>
+<ol>
+<li>
+<p>Dependencies Depth (X-Axis):</p>
+<ol>
+<li>Upper Section (Direct Dependencies): Service A, Service B, and Service C are top-level services in the system.They directly depend on other services in the middle and lower sections.</li>
+<li>Mid Section (Intermediate Dependencies):
+<ol>
+<li>User Management Service: Manages user-related functionalities. Service A, Service B, and Service C depend on this service.</li>
+<li>API Gateway: Handles incoming API requests, routing them to the appropriate services. Service A, Service B, and Service C also depend on this service.</li>
+</ol>
+</li>
+<li>Lower Section (Deeper Dependencies):
+<ol>
+<li>Redis Memorystore: An in-memory data store. The API Gateway has a dependency on this component.</li>
+<li>Google K8s Engine (GKE): The Kubernetes management service provided by Google. The API Gateway and those three Services in upper section also depends on this service.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Stability (Y-Axis):</p>
+<ol>
+<li>Passable Stability: Service A and Service b currently in this section, demonstrating both custom build and open source that we self managed can be in the same Y-Axis section</li>
+<li>General Stability: User Management Service is positioned here, indicating it has achieved 98% uptime over the past 3 months.</li>
+<li>Proven Stability: API Gateway resides in this stability bracket, suggesting a 99% uptime over the past 3 months.</li>
+<li>Exceptional Stability: Redis Memorystore is situated here, indicating 99.9% uptime over the past 6 months.</li>
+<li>Mission-Critical Stability: Google K8s Engine (GKE) is in this section, highlighting a strong 99.99% uptime over the past year.</li>
+</ol>
+</li>
+</ol>
+<h3 id="that-is-a-map-okay-so-what">&ldquo;That is a map okay&hellip; so what?&rdquo;</h3>
+<p>The map provides a clear understanding of how services interact and their respective stabilities. With this kind of visualization, it won&rsquo;t be long before someone initiates a discussion on aspects that may not be ideal in the current situation. Looking at the map example above, all those services depend on the user management service. Thus, it only makes sense that these three services cannot achieve proven stability if one of their dependencies, the user management service, is still at general stability. If we aim to move service C to the proven stability section, then we have two options:</p>
+<ul>
+<li>Improve the user management service so it can be placed in the proven stability section.</li>
+<li>Ensure that service C no longer depends on the user management service.
+Such a visualization will exponentially increase the effectiveness and objectivity of web app architecture discussions.</li>
+</ul>
+<h2 id="why-is-it-important">Why is it important?</h2>
+<p>The Runtime Dependencies Map is important for several reasons:</p>
+<ol>
+<li>Visibility &amp; Transparency: It provides stakeholders with a visual representation of how different services and components are interconnected. This aids in understanding the complexity and intricacy of the system.</li>
+<li>Informed Decision Making: When considering changes, upgrades, or decommissions, understanding dependencies ensures that decisions are made with full knowledge of potential ripple effects.</li>
+<li>Facilitates Communication: A visual representation is often easier to understand than lengthy technical explanations. This map can serve as a discussion starter among different teams, ensuring everyone is on the same page.</li>
+<li>Planning &amp; Prioritization: When planning new features, updates, or maintenance, understanding the dependencies helps in prioritizing tasks based on their potential impact on the system.
+In essence, a Runtime Dependencies Map acts as a crucial tool in software architecture and system management, providing a holistic view of the system&rsquo;s interconnections and stabilities, thereby guiding informed decision-making.</li>
+</ol>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/posts/tdd-for-the-right-reason/"
+      ><span>Doing TDD for the Right Reason: Its Okay to Do It Wrong</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="http://localhost:1313/">Ramadio</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
