@@ -1,7 +1,10 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://blog.ramadio.com/'
 languageCode = 'en-us'
 title = 'Ramadio'
 theme = 'paper'
+
+
+
 
 [params]
   color = 'linen'
@@ -12,3 +15,7 @@ theme = 'paper'
   avatar = 'rizaramadan@gmail.com'
   name = 'Ramad'
   bio = 'Writing about work related'
+
+[services]
+  [services.googleAnalytics]
+    ID = 'G-Y0RE36EK2Y'
