@@ -27,3 +27,7 @@ The caveat is that the source and target table names must be the same. Therefore
 
 ## Conclusion
 Implementing microservices correctly means favoring asynchronous communication over synchronous, primarily through event-driven data transfer. The outbox pattern is essential for publishing events consistently, and typically, a message broker is necessary for its implementation. Fortunately, PostgreSQL logical replication can now facilitate event-driven approaches without the need for a message broker, tremendously simplifying and easing the implementation of the outbox pattern.
+
+
+## Discussion
+Further discussion for this post can be [continued on X (previously known as Twitter)](https://x.com/riza_ramadan/status/1724311374740996576)
