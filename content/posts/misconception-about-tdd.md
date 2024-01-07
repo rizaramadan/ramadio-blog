@@ -19,3 +19,9 @@ When developing a web API, the traditional view of strict TDD suggests that the 
 
 ## Conclusion
 TDD is a flexible and comprehensive methodology that adapts to various levels of testing and stages of software development. Dispelling these misconceptions is key to harnessing the full potential of TDD, ensuring that it remains an approach through which we can deliver software more quickly, easily, and with higher quality over time.
+
+
+## Discussion
+Further discussion for this post can be [continued on X (previously known as Twitter)](https://x.com/riza_ramadan/status/1743804775668572341)
+
+
